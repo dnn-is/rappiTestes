@@ -11,5 +11,6 @@ public class InitialPageTest extends BaseTest {
 	@Test
 	public void primeiroTeste() {
 		page.abrirPagina();
+		page.clicarEntrada();
 	}
 }
