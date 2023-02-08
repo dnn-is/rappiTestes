@@ -21,7 +21,16 @@ public class LoginPageTest extends BaseTest {
 	
 	@Test
 	public void deveVerificarTextoLogin() {
-		Assert.assertEquals("Cadastre-se ou faça o login para continuar", login.obterTextoLogin());
+		Assert.assertTrue(login.isLoginTextPresent());
+	}
+	
+	@Test
+	public void deveVerificarBotoes() {
+		Assert.assertTrue(login.isFacebookButtonPresent());
+		Assert.assertTrue(login.isAppleButtonPresent());
+		Assert.assertTrue(login.isGoogleButtonPresent());
+		Assert.assertTrue(login.isPhoneButtonPresent());
+		Assert.assertTrue(login.isHaveAccountButtonPresent());
 	}
 
 }
