@@ -1,12 +1,11 @@
-package tests;
+package loginpage;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import core.BaseTest;
-import pages.InitialPage;
-import pages.LoginPage;
+import initialpage.InitialPage;
 
 public class LoginPageTest extends BaseTest {
 	
@@ -14,8 +13,7 @@ public class LoginPageTest extends BaseTest {
 	LoginPage login = new LoginPage();
 	
 	@Before
-	public void abrirPaginaInicialClicarEntrada() {
-		page.abrirPagina();
+	public void clicarEntrada() {
 		page.clicarEntrada();
 	}
 	

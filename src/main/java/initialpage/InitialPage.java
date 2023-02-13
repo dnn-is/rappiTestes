@@ -1,5 +1,10 @@
-package pages;
+package initialpage;
 
+import static core.DriverFactory.getDriver;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -25,12 +30,21 @@ public class InitialPage extends BasePage {
 	@FindBy(xpath = "//button[@data-qa='confirm-address']")
 	WebElement confirmarEnedereco;
 	
-	public void abrirPagina() {
-		openInitialPage("https://www.rappi.com.br/");
-	}
+	@FindBy(xpath = "//input[@data-qa='address-description']")
+	WebElement addressDescription;
+	
+	@FindBy(id = "save-addess-button")
+	WebElement saveAdrressButton;
+	
+	@FindBy(xpath = "//div[@class='css-19b1ukb']")
+	WebElement promotionBanner;
 	
 	public void clicarEntrada() {
 		click(entrada);
+	}
+	
+	public void clickPromotionBanner() {
+		click(promotionBanner);
 	}
 	
 	public void clicarLocal() {
@@ -39,6 +53,15 @@ public class InitialPage extends BasePage {
 	
 	public boolean isEnderecoCorreto() {
 		if(enderecoTexto.getText().contains("Jardim Cidade Universitária")) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean isPromotionBannerPresent() {
+		List<WebElement> promotionBanner = getDriver().findElements(By.xpath("//div[@class='css-19b1ukb']"));
+		if(promotionBanner.size()>0) {
 			return true;
 		}
 		
@@ -55,11 +78,17 @@ public class InitialPage extends BasePage {
 	}
 	
 		
-	
 	public void clicarConfirmarEndereco() {
 		click(confirmarEnedereco);
 	}
+	
+	public void provideAddressDescription() {
+		sendKeys(addressDescription, "casa");
+	}
 
+	public void saveAdrress() {
+		click(saveAdrressButton);
+	}
 	
 	
 
