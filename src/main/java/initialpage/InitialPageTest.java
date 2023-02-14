@@ -7,7 +7,6 @@ import core.BaseTest;
 
 public class InitialPageTest extends BaseTest {
 	InitialPage initialPage = new InitialPage();
-	
 
 	@Test
 	public void provideLocation() {
@@ -17,19 +16,20 @@ public class InitialPageTest extends BaseTest {
 		initialPage.clicarConfirmarEndereco();
 		Assert.assertTrue(initialPage.isEnderecoCorreto());
 	}
-	
+
 	@Test
 	public void verifyPromotionBanner() {
 		Assert.assertTrue(initialPage.isPromotionBannerPresent());
 	}
-	
+
 	@Test
 	public void qualquer() {
 		initialPage.clickPromotionBanner();
 		initialPage.fornecerEndereco();
 		initialPage.clicarEndereco();
 		initialPage.clicarConfirmarEndereco();
+		initialPage.provideAddressDescription();
 		initialPage.saveAdrress();
-		
+
 	}
 }
